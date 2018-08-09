@@ -1,0 +1,18 @@
+# go-winery build.yml
+
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: golang
+    tag: 1.9.2
+
+inputs:
+  - name: git-espwine-repo
+
+outputs:
+  - name: run-errors.log
+
+run:
+  path: git-steve/ci/scripts/build.sh

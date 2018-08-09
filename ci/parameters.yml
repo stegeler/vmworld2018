@@ -1,3 +1,0 @@
-vcenter_host: vcsa-01.corp.local.io       # EDIT - this is for deployment of the ovas for the mgmt plane
-vcenter_usr: administrator@vsphere.local  # EDIT - this is for deployment of the ovas for the mgmt plane
-vcenter_pwd: 39adladfasdfl!               # EDIT - this is for deployment of the ovas for the mgmt plane
