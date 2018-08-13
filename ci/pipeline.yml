@@ -1,1 +1,27 @@
-#Concourse Pipeline for VMworld 2018 Demo
+# steve's stuff pipline
+
+recources:
+  - name: git-steve
+    type: git
+    source:
+      uri: https://github.com/stegeler/vmworld2018
+      branch: master
+      #paths: ['/*']
+
+jobs:
+  - name: static-test
+    public: true
+    plan:
+      - get: git-steve
+        trigger: true
+      - task: task-static-tests
+        file: git-steve/ci/tasks/static.yml
+
+  - name: run-config
+    public: true
+    plan:
+      - get: git-steve
+        passed: [static-tests]
+        trigger: true
+      - task: task-run
+        file: git-steve/ci/tasks/run.yml
