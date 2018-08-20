@@ -1,4 +1,4 @@
-docker run --name concourse-db   --net=concourse-net   -h concourse-postgres   -p 
+docker network create concourse-net
 
 docker pull postgres
 
@@ -34,3 +34,15 @@ docker run --name concourse-db \
 
 docker run  --name concourse   -h concourse   -p 8080:8080   --detach   --privileged   --net=concourse-net   concourse/concourse quickstart   --add-local-user=admin:VMware1!   --main-team-local-user=concourseadmin   --external-url=http://10.40.14.6:8080   --postgres-user=postgresadmin   --postgres-password=VMware1!   --postgres-host=concourse-db   --worker-garden-dns-server 8.8.8.8
 #concourse user = admin, password is VMware1!
+
+#get the fly tool
+wget https://github.com/concourse/concourse/releases/download/v4.0.0/fly_linux_amd64
+
+#rename and locate fly
+mv ./fly_linux_amd64 ~./vmworld2018/ .
+
+
+#set the fly target
+fly --target friendlytargetname login -u admin -p VMware1! --concourse-url http://10.40.14.6:8080 -n main
+
+
