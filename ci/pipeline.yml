@@ -1,6 +1,6 @@
 # steve's stuff pipline
 
-recources:
+resources:
   - name: git-steve
     type: git
     source:
@@ -21,7 +21,7 @@ jobs:
     public: true
     plan:
       - get: git-steve
-        passed: [static-tests]
+        passed: [static-test]
         trigger: true
       - task: task-run
-        file: git-steve/ci/tasks/run.yml
+        file: git-steve/ci/tasks/build.yml
