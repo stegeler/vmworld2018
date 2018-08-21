@@ -1,6 +1,11 @@
 #Group=Administrator
 Administrator
-tom
-fred
-steve
+
+name: tom
+password: asdlkfja
+group: Administrator
+
+name: steve
+# password: generated
+group: Administrator
 
