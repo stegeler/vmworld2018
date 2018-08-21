@@ -1,4 +1,4 @@
-# steve's static.yml
+# This stage of pipeline is used to test the code
 
 platform: linux
 

@@ -14,7 +14,7 @@ jobs:
     plan:
       - get: git-steve
         trigger: true
-      - task: task-static-tests
+      - task: task-static-test
         file: git-steve/ci/tasks/static-test.yml
 
   - name: run-config
@@ -24,4 +24,4 @@ jobs:
         passed: [static-test]
         trigger: true
       - task: task-run
-        file: git-steve/ci/tasks/build.yml
+        file: git-steve/ci/tasks/run-config.yml

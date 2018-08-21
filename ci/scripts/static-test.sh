@@ -1,5 +1,5 @@
 #!/bin/bash
-# steves static.sh
+# Used to test the syntax of the code but will not implement a change
 
 set -e -x
 
@@ -15,9 +15,9 @@ echo ""
 mkdir -p ${TOP}/static-error-files
 
 # Test the code (-n will just verify syntax)
-bash -n git-steve/acctctl.sh >${TOP}/static-error-files/static.log 2>&1
+bash -n git-steve/acctctl.sh >${TOP}/static-error-files/test.log 2>&1
 
 # Check whats here
 echo "List out the output directory"
-ls -lat ${TOP}/static-error-files/static.log
+ls -lat ${TOP}/static-error-files/test.log
 echo ""

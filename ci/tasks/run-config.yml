@@ -1,4 +1,4 @@
-# go-winery build.yml
+# This is used to run the configuration changes
 
 platform: linux
 
@@ -15,4 +15,4 @@ outputs:
   - name: run-errors.log
 
 run:
-  path: git-steve/ci/scripts/build.sh
+  path: git-steve/ci/scripts/run-config.sh
