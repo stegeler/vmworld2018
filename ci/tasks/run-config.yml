@@ -13,7 +13,7 @@ inputs:
   - name: static-test-error-files
 
 outputs:
-  - name: static-test-error-files
+  - name: config-test-error-files
 
 run:
   path: git-stegeler/ci/scripts/run-config.sh
