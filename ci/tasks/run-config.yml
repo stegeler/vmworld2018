@@ -10,7 +10,6 @@ image_resource:
 
 inputs:
   - name: git-stegeler
-  - name: static-test-error-files
 
 outputs:
   - name: config-test-error-files
