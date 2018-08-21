@@ -15,7 +15,7 @@ jobs:
       - get: git-steve
         trigger: true
       - task: task-static-tests
-        file: git-steve/ci/tasks/static.yml
+        file: git-steve/ci/tasks/static-test.yml
 
   - name: run-config
     public: true

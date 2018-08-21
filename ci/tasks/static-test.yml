@@ -15,4 +15,4 @@ outputs:
   - name: static-error-files
 
 run:
-  path: git-steve/ci/scripts/static.sh
+  path: git-steve/ci/scripts/static-test.sh

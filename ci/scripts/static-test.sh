@@ -14,7 +14,7 @@ echo ""
 # Make the output area if it does not exist
 mkdir -p ${TOP}/static-error-files
 
-# Test the code
+# Test the code (-n will just verify syntax)
 bash -n git-steve/acctctl.sh >${TOP}/static-error-files/static.log 2>&1
 
 # Check whats here
