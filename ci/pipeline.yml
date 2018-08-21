@@ -1,7 +1,7 @@
 # steve's stuff pipline
 
 resources:
-  - name: git-steve
+  - name: git-stegeler
     type: git
     source:
       uri: https://github.com/stegeler/vmworld2018
@@ -12,16 +12,16 @@ jobs:
   - name: static-test
     public: true
     plan:
-      - get: git-steve
+      - get: git-stegeler
         trigger: true
       - task: task-static-test
-        file: git-steve/ci/tasks/static-test.yml
+        file: git-stegeler/ci/tasks/static-test.yml
 
   - name: run-config
     public: true
     plan:
-      - get: git-steve
+      - get: git-stegeler
         passed: [static-test]
         trigger: true
       - task: task-run
-        file: git-steve/ci/tasks/run-config.yml
+        file: git-stegeler/ci/tasks/run-config.yml
