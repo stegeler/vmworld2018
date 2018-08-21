@@ -6,7 +6,6 @@ resources:
     source:
       uri: https://github.com/stegeler/vmworld2018
       branch: master
-      #paths: ['/*']
 
 jobs:
   - name: static-test

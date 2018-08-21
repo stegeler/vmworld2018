@@ -10,9 +10,10 @@ image_resource:
 
 inputs:
   - name: git-stegeler
+  - name: static-test-error-files
 
 outputs:
-  - name: run-errors.log
+  - name: static-test-error-files
 
 run:
   path: git-stegeler/ci/scripts/run-config.sh

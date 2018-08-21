@@ -12,12 +12,12 @@ ls -lat
 echo ""
 
 # Make the output area if it does not exist
-mkdir -p ${TOP}/static-error-files
+mkdir -p ${TOP}/static-test-error-files
 
 # Test the code (-n will just verify syntax)
-bash -n git-stegeler/acctctl.sh >${TOP}/static-error-files/test.log 2>&1
+bash -n git-stegeler/acctctl.sh >${TOP}/static-test-error-files/test.log 2>&1
 
 # Check whats here
 echo "List out the output directory"
-ls -lat ${TOP}/static-error-files/test.log
+ls -lat ${TOP}/static-test-error-files/test.log
 echo ""
