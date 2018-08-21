@@ -9,7 +9,7 @@ image_resource:
     tag: 1.9.2
 
 inputs:
-  - name: git-espwine-repo
+  - name: git-stegeler
 
 outputs:
   - name: run-errors.log

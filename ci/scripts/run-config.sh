@@ -1,5 +1,5 @@
 #!/bin/bash
-# steves static.sh
+# run the configuration change
 
 set -e -x
 
@@ -15,7 +15,7 @@ echo ""
 mkdir -p ${TOP}/static-error-files
 
 # Test the code
-bash git-steve/acctctl.sh >${TOP}/static-error-files/run.log 2>&1
+bash git-stegeler/acctctl.sh >${TOP}/static-error-files/run.log 2>&1
 
 # Check whats here
 echo "List out the output directory"

@@ -15,7 +15,7 @@ echo ""
 mkdir -p ${TOP}/static-error-files
 
 # Test the code (-n will just verify syntax)
-bash -n git-steve/acctctl.sh >${TOP}/static-error-files/test.log 2>&1
+bash -n git-stegeler/acctctl.sh >${TOP}/static-error-files/test.log 2>&1
 
 # Check whats here
 echo "List out the output directory"
