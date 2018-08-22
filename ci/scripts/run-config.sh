@@ -1,6 +1,8 @@
 #!/bin/bash
 # run the configuration change
 
+# this sets the script to die immediately on any error (-e) and
+# to print out every command executed for ease of watching it run.
 set -e -x
 
 # Save current directory
