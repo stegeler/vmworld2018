@@ -61,4 +61,8 @@ apt-get install -y sshpass
 
 # Add the user as requested
 sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
-  /usr/lib/vmware-vmafd/bin/dir-cli --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" group list --name ${group}
+  /usr/lib/vmware-vmafd/bin/dir-cli --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" \
+  user create --account ${user} --user-password "${password}"
+sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
+  /usr/lib/vmware-vmafd/bin/dir-cli --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" \
+  group modify --name ${group} --add ${user}
