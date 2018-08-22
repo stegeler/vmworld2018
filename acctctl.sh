@@ -9,7 +9,8 @@
 # the adminusers.txt file must contain lines of the form:
 #
 #   Group: <some_group>
-#   User: <some_user>
+#   User: A <some_user>
+#   User: D <some_other_user>
 #
 # where Group: or User: represent the first set of characters on a single line.
 # The Group sets the current local adminsitrators group to assign users to.
@@ -21,12 +22,12 @@
 #
 # For example:
 #   Group: Administrators
-#   User: steve
-#   User: tom
+#   User: A steve
+#   User: A tom
 #
 #   Group: MoreAdmins
-#   User: john
-#   User: dan
+#   User: A john
+#   User: A dan
 #  
 #  
 

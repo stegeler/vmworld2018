@@ -9,7 +9,8 @@
 # The administrator user spec file # must contain lines of the form:
 #
 #   Group: <some_group>
-#   User: <some_user> [password]
+#   User: A <some_user> [password]
+#   User: D <some_other_user> [password]
 #
 # where Group: or User: represent the first set of characters on a single line.
 # The Group sets the current local adminsitrators group to assign users to.
@@ -22,12 +23,12 @@
 #
 # For example:
 #   Group: Administrators
-#   User: steve
-#   User: tom
+#   User: A steve
+#   User: A tom
 #
 #   Group: MoreAdmins
-#   User: john
-#   User: dan
+#   User: A john
+#   User: A dan
 #  
 #  
 BEGIN {
