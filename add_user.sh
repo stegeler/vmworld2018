@@ -40,7 +40,7 @@ if [ -z "${VCENTER_ADMIN_PASSWORD}" ]; then
 fi
 
 # If there is not a group and user on the command line, die out.
-if [ $# -lt 5 ]; then
+if [ $# -lt 4 ]; then
   echo "ERROR: insufficient arguments"
   usage
   exit 1
