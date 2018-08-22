@@ -2,6 +2,8 @@
 # User: [A|D] account password
 
 
-Group: Administrator
+Group: Administrators
 User: A tom Tom Master password_for_tom
 User: A steve Steve Worker
+User: A starlord Quinn blah
+
