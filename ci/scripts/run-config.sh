@@ -18,7 +18,7 @@ mkdir -p ${TOP}/config-test-error-files
 
 # run the code
 pushd git-stegeler
-./acctctl.sh >${TOP}/config-test-error-files/run.log 2>&1
+./acctctl.sh | tee >${TOP}/config-test-error-files/run.log 2>&1
 popd
 
 # Check whats here

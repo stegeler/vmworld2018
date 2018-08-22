@@ -28,7 +28,7 @@ bash -n git-stegeler/del_user.sh >>${TOP}/static-test-error-files/test.log 2>&1
 # Test the code itself against the user file
 echo "Checking administrator user spec file and parsing script." >>${TOP}/static-test-error-files/test.log 2>&1
 pushd git-stegeler
-./acctctl.sh debug >>${TOP}/static-test-error-files/test.log 2>&1
+./acctctl.sh debug | tee >>${TOP}/static-test-error-files/test.log 2>&1
 popd
 
 # Check what's in the output
