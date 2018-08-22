@@ -24,3 +24,9 @@ jobs:
         trigger: true
       - task: task-run
         file: git-stegeler/ci/tasks/run-config.yml
+        params:
+          VCSA_ADDRESS: ((vcsa_address))
+          VCSA_USER: ((vcsa_user))
+          VCSA_PASSWORD: ((vcsa_password))
+          VCENTER_ADMIN_USER: ((vcenter_admin_user))
+          VCENTER_ADMIN_PASSWORD: ((vcenter_admin_password))
