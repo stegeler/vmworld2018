@@ -10,7 +10,7 @@ fly -t vsphereacct \
   -var "vcsa_address=vcsa-01a.corp.local" \
   -var "vcsa_user=root" \
   -var "vcsa_password=VMware1!" \
-  -var "vcenter_admin_user=administrator@vsphere.local"
+  -var "vcenter_admin_user=administrator@vsphere.local" \
   -var "vcenter_admin_password=VMware1!"
 
 if [ $? -eq 0 ]; then
