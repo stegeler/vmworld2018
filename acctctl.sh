@@ -34,7 +34,7 @@
 # Note, the add will fail if the user already exists, which is concidered fine
 # for this demo.
 
-if [ "${1}x" == "debugx" ]; then
+if [ "${1}x" = "debugx" ]; then
   awk -v debug=true -f parse_admins.awk adminusers.txt
 else
   awk -f parse_admins.awk adminusers.txt
