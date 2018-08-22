@@ -9,8 +9,8 @@
 # The administrator user spec file # must contain lines of the form:
 #
 #   Group: <some_group>
-#   User: A <some_user> [password]
-#   User: D <some_other_user> [password]
+#   User: A <some_user> <first_name> <last_name> [password]
+#   User: D <some_other_user> <first_name> <last_name> [password]
 #
 # where Group: or User: represent the first set of characters on a single line.
 # The Group sets the current local adminsitrators group to assign users to.
@@ -23,14 +23,9 @@
 #
 # For example:
 #   Group: Administrators
-#   User: A steve
-#   User: A tom
+#   User: A steve Steve IsClient
+#   User: A tom Tom IsMaster
 #
-#   Group: MoreAdmins
-#   User: A john
-#   User: A dan
-#  
-#  
 BEGIN {
   # Set field separator to commas and whitespace
   FS = ",[ \t]*|[ \t]+"
@@ -65,7 +60,7 @@ BEGIN {
 # which case just print what would happen in a real run.
 /^User:/ {
   if ($2 == "A") {
-    cmd = "./add_user.sh" " " g_group " " $3 " " $4
+    cmd = "./add_user.sh" " " g_group " " $3 " " $4 " " $5 " " $6
     if (debug) {
       print "DEBUG: " cmd
     } else {
@@ -73,7 +68,7 @@ BEGIN {
     }
     adds += 1
   } else if ($2 == "D") {
-    cmd = "./del_user.sh" " " g_group " " $3
+    cmd = "./del_user.sh" " " g_group " " $3 " " $4 " " $5
     if (debug) {
       print "DEBUG: " cmd
     } else {

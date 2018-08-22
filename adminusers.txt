@@ -3,11 +3,5 @@
 
 
 Group: Administrator
-User: A tom password_for_tom
-User: A steve
-User: D someone_to_delete
-
-Group: OtherAdmins
-User: A john password_for_john
-User: A dan
-User: D bad_other_admin
+User: A tom Tom Master password_for_tom
+User: A steve Steve Worker

@@ -1,7 +1,7 @@
 #!/bin/sh
 # Add users to local vCenter groups.
 # Syntax:
-#   add_user.sh <group> <user> [password]
+#   add_user.sh <group> <user> <first_name> <last_name> [password]
 #
 
 # Print usage for the script
@@ -36,7 +36,7 @@ if [ -z "${VCENTER_ADMIN_PASSWORD}" ]; then
 fi
 
 # If there is not a group and user on the command line, die out.
-if [ $# -lt 2 ]; then
+if [ $# -lt 5 ]; then
   echo "ERROR: insufficient arguments"
   usage
   exit 1
@@ -45,24 +45,28 @@ fi
 # gather required parameters into 'human readable' variables
 group="$1"
 user="$2"
+first_name="$3"
+last_name="$4"
 
 # get the password if it exists.
-if [ -n "${3}" ]; then
-  password="${3}"
+if [ -n "${5}" ]; then
+  password="${5}"
 else
   # for now, just use a default password since none provided.
   password="password_${user}"
 fi
 
-# add sshpass for calling on vcsa remotely.
-# NOTE: ASSUMING golant:1.9.1 docker container image as base.
-apt-get update
-apt-get install -y sshpass
-
 # Add the user as requested
 sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
-  /usr/lib/vmware-vmafd/bin/dir-cli --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" \
-  user create --account ${user} --user-password "${password}"
+  /usr/lib/vmware-vmafd/bin/dir-cli group list \
+  --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" \
+  --name "${group}"
 sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
-  /usr/lib/vmware-vmafd/bin/dir-cli --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" \
-  group modify --name ${group} --add ${user}
+  /usr/lib/vmware-vmafd/bin/dir-cli user create \
+  --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" \
+  --account ${user} --user-password "${password}" \
+  --first-name ${first_name} --last-name ${last_name}
+sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
+  /usr/lib/vmware-vmafd/bin/dir-cli group modify \
+  --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" \
+  --name ${group} --add ${user}

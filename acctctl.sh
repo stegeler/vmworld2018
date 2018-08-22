@@ -31,6 +31,11 @@
 #  
 #  
 
+# add sshpass for calling on vcsa remotely.
+# NOTE: ASSUMING golant:1.9.1 docker container image as base.
+apt-get update
+apt-get install -y sshpass
+
 # Parse out the administrator user file and issue add or delete commands per user
 # Note, the add will fail if the user already exists, which is concidered fine
 # for this demo.

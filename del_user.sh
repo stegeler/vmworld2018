@@ -20,11 +20,6 @@ fi
 group="$1"
 user="$2"
 
-# add sshpass for calling on vcsa remotely.
-# NOTE: ASSUMING golant:1.9.1 docker container image as base.
-apt-get update
-apt-get install -y sshpass
-
 # Delete the user as requested
 sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
   /usr/lib/vmware-vmafd/bin/dir-cli --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" group list --name ${group}
