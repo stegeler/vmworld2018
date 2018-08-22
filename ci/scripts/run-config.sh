@@ -16,8 +16,10 @@ echo ""
 # Make the output area if it does not exist
 mkdir -p ${TOP}/config-test-error-files
 
-# Test the code
-bash git-stegeler/acctctl.sh >${TOP}/config-test-error-files/run.log 2>&1
+# run the code
+pushd git-stegeler
+./acctctl.sh >${TOP}/config-test-error-files/run.log 2>&1
+popd
 
 # Check whats here
 echo "List out the output directory"
