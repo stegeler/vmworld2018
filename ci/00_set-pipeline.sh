@@ -6,7 +6,7 @@
 
 fly -t vsphereacct \
   -var vcsa_user="root" \
-  -var vcsa_password='VMware1!'
+  -var vcsa_password='VMware1!' \
   -var vcsa_address='vcsa-01a.corp.local' \
   -var vcenter_admin_user='administrator@vsphere.local' \
   set-pipeline --pipeline acctctl \
