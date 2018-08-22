@@ -55,8 +55,9 @@ else
 fi
 
 # add sshpass for calling on vcsa remotely.
-# NOTE: ASSUMING alpine:latest docker container image as base.
-apk add --update --no-cache openssh sshpass
+# NOTE: ASSUMING golant:1.9.1 docker container image as base.
+apt-get update
+apt-get install -y sshpass
 
 # Add the user as requested
 sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
