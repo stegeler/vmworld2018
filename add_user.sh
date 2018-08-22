@@ -4,6 +4,10 @@
 #   add_user.sh <group> <user> <first_name> <last_name> [password]
 #
 
+# this sets the script to to print out every command executed
+# for ease of watching it run.
+set -x
+
 # Print usage for the script
 usage() {
   echo "$0 <group> <user> [password]"
