@@ -20,5 +20,10 @@ fi
 group="$1"
 user="$2"
 
-# Add the user as requested
-echo "delete user ${user} from group ${group}."
+# add sshpass for calling on vcsa remotely.
+# NOTE: ASSUMING alpine:latest docker container image as base.
+apk add --update --no-cache openssh sshpass
+
+# Delete the user as requested
+sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
+  /usr/lib/vmware-vmafd/bin/dir-cli --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" group list --name ${group}

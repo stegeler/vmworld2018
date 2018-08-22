@@ -5,8 +5,8 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: golang
-    tag: 1.9.2
+    repository: alpine
+    tag: latest
 
 inputs:
   - name: git-stegeler

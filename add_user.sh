@@ -54,6 +54,10 @@ else
   password="password_${user}"
 fi
 
+# add sshpass for calling on vcsa remotely.
+# NOTE: ASSUMING alpine:latest docker container image as base.
+apk add --update --no-cache openssh sshpass
+
 # Add the user as requested
-sshpass -p "${VCSA_PASSWORD}" ssh ${VCSA_USER}@${VCSA_ADDRESS} \
+sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
   /usr/lib/vmware-vmafd/bin/dir-cli --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" group list --name ${group}
