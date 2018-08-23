@@ -34,6 +34,8 @@ docker run --name concourse-db \
 
 docker run  --name concourse   -h concourse   -p 8080:8080   --detach   --privileged   --net=concourse-net   concourse/concourse quickstart   --add-local-user=admin:VMware1!   --main-team-local-user=concourseadmin   --external-url=http://10.40.14.6:8080   --postgres-user=postgresadmin   --postgres-password=VMware1!   --postgres-host=concourse-db   --worker-garden-dns-server 8.8.8.8
 #concourse user = admin, password is VMware1!
+# you will need to wait about a min for it to start
+
 
 #get the fly tool
 wget https://github.com/concourse/concourse/releases/download/v4.0.0/fly_linux_amd64
@@ -55,4 +57,6 @@ mv ./fly_linux_amd64 ~./vmworld2018/ .
 fly --target vsphereacct login -u admin -p VMware1! --concourse-url http://10.40.14.6:8080
 
 #fly the pipeline
+#~/vmworld2018/ci/
+fly -t vsphereacct set-pipeline --pipeline acctctl --config pipeline.yml
 
