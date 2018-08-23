@@ -6,4 +6,6 @@ Group: Administrators
 User: A tom Tom Hite VMware1!
 User: A steve Steve Tegeler VMware1!
 User: A starlord Peter Quill VMware1!
-User: A stegeler 
+User: D stegeler 
+User: A ironman Tony Stark VMware1!
+User: A thanos Supreme Being VMware1!
