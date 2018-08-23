@@ -38,11 +38,21 @@ docker run  --name concourse   -h concourse   -p 8080:8080   --detach   --privil
 #get the fly tool
 wget https://github.com/concourse/concourse/releases/download/v4.0.0/fly_linux_amd64
 
+#get fly in the right directory
+
 #rename and locate fly
 mv ./fly_linux_amd64 ~./vmworld2018/ .
 
+#need to edit the path variable so fly can run
+
+#export PATH=~/bin:$PATH
+#open .bashrc file using your favourite editor.I prefer vim ( vi ~/. bashrc)
+#add export path variable line at the end of the file ( export PATH=/home/datascihome/miniconda2/bin:$PATH ) and save the file.
+#For changes to save source the bashrc file using this command ( source ~/.
 
 #set the fly target
-fly --target friendlytargetname login -u admin -p VMware1! --concourse-url http://10.40.14.6:8080 -n main
+#fly --target friendlytargetname login -u admin -p VMware1! --concourse-url http://10.40.14.6:8080 -n main
+fly --target vsphereacct login -u admin -p VMware1! --concourse-url http://10.40.14.6:8080
 
+#fly the pipeline
 

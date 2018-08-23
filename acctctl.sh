@@ -9,7 +9,7 @@
 # the adminusers.txt file must contain lines of the form:
 #
 #   Group: <some_group>
-#   User: A <some_user>
+#   User: A <some_user> 
 #   User: D <some_other_user>
 #
 # where Group: or User: represent the first set of characters on a single line.
