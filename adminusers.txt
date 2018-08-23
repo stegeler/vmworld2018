@@ -3,7 +3,7 @@
 
 
 Group: Administrators
-User: A tom Tom Master password_for_tom
-User: A steve Steve Worker
-User: A starlord Quinn blah
+User: A tom Tom Master VMware1!
+User: A steve Steve Worker VMware1!
+User: A starlord Peter Quill VMware1! 
 
