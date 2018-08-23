@@ -24,7 +24,7 @@
 #   Group: Administrators
 #   User: A steve Steve Tegeler VMware1!
 #   User: A tom Tom Hite VMware1!
-##  
+#  
 #  
 
 # add sshpass for calling on vcsa remotely.
