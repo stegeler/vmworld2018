@@ -1,7 +1,7 @@
 #!/bin/sh
 # Add users to local vCenter groups.
 # Syntax:
-#   add_user.sh <group> <user> <first_name> <last_name> [password]
+#   add_user.sh <group> <user> <first_name> <last_name> [complex_password]
 #
 
 # Set to print out every command if in debug mode.

@@ -9,26 +9,22 @@
 # the adminusers.txt file must contain lines of the form:
 #
 #   Group: <some_group>
-#   User: A <some_user> 
-#   User: D <some_other_user>
+#   User: A <some_user> <First> <Last> <complex_pass>
+#   User: D <some_user_to_be_deleted>
 #
 # where Group: or User: represent the first set of characters on a single line.
 # The Group sets the current local adminsitrators group to assign users to.
 # Users follow and go into the Group or are deleted from Group until the next
 # Group line appears, after which users are relative to that new Group.
-# Passwords are always set to 'password_<username>' for now. under normal
+# Passwords are required. under normal
 # circumstances, the password would be generated and placed in a store such as
 # Vault or the like.
 #
 # For example:
 #   Group: Administrators
-#   User: A steve
-#   User: A tom
-#
-#   Group: MoreAdmins
-#   User: A john
-#   User: A dan
-#  
+#   User: A steve Steve Tegeler VMware1!
+#   User: A tom Tom Hite VMware1!
+##  
 #  
 
 # add sshpass for calling on vcsa remotely.
