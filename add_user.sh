@@ -4,9 +4,10 @@
 #   add_user.sh <group> <user> <first_name> <last_name> [password]
 #
 
-# this sets the script to to print out every command executed
-# for ease of watching it run.
-set -x
+# Set to print out every command if in debug mode.
+if [ -n "${DEBUG}" -a ${DEBUG} ]; then
+  set -x
+fi
 
 # Print usage for the script
 usage() {
