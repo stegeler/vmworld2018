@@ -11,7 +11,8 @@ fly -t vsphereacct \
   --var 'vcsa_user=root' \
   --var 'vcsa_password=VMware1!' \
   --var 'vcenter_admin_user=administrator@vsphere.local' \
-  --var 'vcenter_admin_password=VMware1!'
+  --var 'vcenter_admin_password=VMware1!' \
+  --var 'debug_mode=true'
 
 if [ $? -eq 0 ]; then
 	fly -t vsphereacct unpause-pipeline --pipeline acctctl

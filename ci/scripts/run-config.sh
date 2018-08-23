@@ -1,9 +1,13 @@
 #!/bin/bash
 # run the configuration change
 
-# this sets the script to die immediately on any error (-e) and
-# to print out every command executed for ease of watching it run.
-set -e -x
+# this sets the script to die immediately on any error
+set -e
+
+# Set to print out every command if in debug mode.
+if [ -n "${DEBUG}" -a ${DEBUG} ]; then
+  set -x
+fi
 
 # Save current directory
 TOP="$(pwd)"
