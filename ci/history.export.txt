@@ -1,0 +1,1000 @@
+ 1127  docker image save harbor.corp.local/library/restreview-ui:V2 > restreview-ui:V2.tar
+ 1128  docker image save harbor.corp.local/library/restreview-appserver:V2 > restreview-appserver:V2.tar
+ 1129  docker image save harbor.corp.local/library/restreview-redis:V1 > restreview-redis:V1.tar
+ 1130  docker image save harbor.corp.local/library/restreview-appserver:V1 > restreview-appserver:V1.tar
+ 1131  docker image save harbor.corp.local/library/restreview-db:V1 > restreview-db:V1.tar
+ 1132  git set core.compression 0
+ 1133  ls
+ 1134  ll
+ 1135  history
+ 1136  cd
+ 1137  bosh -e kubobosh
+ 1138  bosh -e kubobosh deployments
+ 1139  bosh -e kubobosh -d pivotal-container-service-3fbd1d75301459e7d611 instances
+ 1140  bosh -e kubobosh -d pivotal-container-service-3fbd1d75301459e7d611 pivotal-container-service/8055f076-8cd1-4044-82fe-e786ef512c38
+ 1141  bosh -e kubobosh -d pivotal-container-service-3fbd1d75301459e7d611 ssh pivotal-container-service/8055f076-8cd1-4044-82fe-e786ef512c38
+ 1142  bosh -e kubobosh deployments
+ 1143  bosh -e kubobosh -d service-instance_c2a852a4-15ca-4c13-8594-dc808a85ea42 ssh worker/0
+ 1144  pks get-credentials my-cluster
+ 1145  history |grep login
+ 1146  pks login -a pks.corp.local -u admin -p sIu9o4kQFBO13qXBsQ2G2szLJE-e8Hoz -k
+ 1147  pks get-credentials my-cluster
+ 1148  kubectl run resource-consumer --image=k8s.gcr.io/resource_consumer:beta --expose --service-overrides='{ "spec": { "type": "LoadBalancer" } }' --port 8080
+ 1149  kubectl get pods
+ 1150  kubectl get all
+ 1151  kubectl describe po/resource-consumer-744fd9db88-5gnjt
+ 1152  kubectl delete resource-consumer --image=k8s.gcr.io/resource_consumer:beta --expose --service-overrides='{ "spec": { "type": "LoadBalancer" } }' --port 8080
+ 1153  kubectl get all
+ 1154  kubectl delete deployment resource-consumer
+ 1155  kubectl get all
+ 1156  kubectl delete svc resource-consumer
+ 1157  kubectl get all
+ 1158  kubectl run resource-consumer --image=k8s.gcr.io/resource_consumer:latest --expose --service-overrides='{ "spec": { "type": "LoadBalancer" } }' --port 8080
+ 1159  kubectl get all
+ 1160  kubectl describe po/resource-consumer-64cfbc6f47-4l498
+ 1161  kubectl delete deployment resource-consumer
+ 1162  kubectl delete svc resource-consumer
+ 1163  docker pull k8s.gcr.io/resource_consumer:beta
+ 1164  docker images 
+ 1165  docker tag k8s.gcr.io/resource_consumer:beta harbor.corp.local/library/resource_consumer
+ 1166  docker push harbor.corp.local/library/resource_consumer
+ 1167  kubectl get all
+ 1168  kubectl run resource-consumer --image=harbor.corp.local/library/resource_consumer:latest --expose --service-overrides='{ "spec": { "type": "LoadBalancer" } }' --port 8080
+ 1169  kubectl get all
+ 1170  kubectl describe po/resource-consumer-6b69b9fd54-p8s44
+ 1171  kubectl get all
+ 1172  curl --data "millicores=300&durationSec=600" http://10.40.14.40:8080/ConsumeCPU
+ 1173  history |grep login
+ 1174  cd apps
+ 1175  ll
+ 1176  cd ..
+ 1177  ll
+ 1178  more cadvisor.yaml 
+ 1179  curl --data "millicores=300&durationSec=600" http://10.40.14.40:8080/ConsumeCPU
+ 1180  curl --data "millicores=600&durationSec=600" http://10.40.14.40:8080/ConsumeCPU
+ 1181  kubectl get all --all-namespaces
+ 1182  kubectl get pod nsx-node-agent-8dhnh
+ 1183  kubectl get pod nsx-node-agent-8dhnh --namespace pks-infrastructure
+ 1184  kubectl get pod nsx-node-agent-8dhnh --namespace pks-infrastructure -o wide
+ 1185  kubectl describe pod nsx-node-agent-8dhnh --namespace pks-infrastructure 
+ 1186  curl --data "millicores=600&durationSec=600" http://10.40.14.40:8080/ConsumeCPU
+ 1187  kubectl get all
+ 1188  kubectl log -f po/resource-consumer-6b69b9fd54-p8s44
+ 1189  kubectl get ds
+ 1190  kubectl get ns
+ 1191  kubectl get ds -n default
+ 1192  kubectl get ds -n pks-infrastructure
+ 1193  kubectl get ds -n kube-system
+ 1194  kubectl get ds vrops-cadvisor -o
+ 1195  kubectl get ds vrops-cadvisor -o yaml
+ 1196  kubectl get ds vrops-cadvisor -o yaml -n kube-system
+ 1197  kubectl get nodes
+ 1198  kubectl proxy
+ 1199  ls
+ 1200  cat cadvisor.yaml 
+ 1201  history
+ 1202  kubectl log -f po/resource-consumer-6b69b9fd54-p8s44
+ 1203  date
+ 1204  cat cadvisor.yaml 
+ 1205  history |grep ssh
+ 1206  bosh -e kubobosh -d service-instance_c2a852a4-15ca-4c13-8594-dc808a85ea42 ssh worker/0
+ 1207  ll
+ 1208  cp cadvisor.yaml cadvisor-test.yaml
+ 1209  kubectl delete -f cadvisor.yaml 
+ 1210  vi cadvisor-test.yaml 
+ 1211  kubectl apply -f cadvisor-test.yaml 
+ 1212  kubectl get all
+ 1213  kubectl delete deployment resource-consumer
+ 1214  kubectl get all
+ 1215  kubectl delete svc resource-consumer
+ 1216  kubectl get all
+ 1217  kubectl get all --all-namespaces
+ 1218  kubectl delete -f cadvisor-test.yaml 
+ 1219  kubectl apply -f cadvisor.yaml 
+ 1220  kubectl get nodes
+ 1221  bosh vms
+ 1222  bosh-cli vms
+ 1223  kubectl get pods --all-namespaces
+ 1224  history|grep ssh
+ 1225  kubectl get pos -n kube-system
+ 1226  kubectl get pod -n kube-system
+ 1227  history | grep apply
+ 1228  vi cadvisor.yaml 
+ 1229  vi cadvisor-test.yaml 
+ 1230  cp cadvisor.yaml cadvisor-line.yml
+ 1231  vi cadvisor-line.yml 
+ 1232  kubectl apply -f cadvisor-line.yml 
+ 1233  kubectl get pod -n kube-system
+ 1234  kubectl  logs -n kube-system vrops-cadvisor-line-2l5mf
+ 1235  kubectl proxy &
+ 1236  kill 16703
+ 1237  ls
+ 1238  cp .kube/config kubeconfig
+ 1239  rm kubeconfig 
+ 1240  kubectl delete -f cadvisor-line.yml 
+ 1241  vi cadvisor-line.yml 
+ 1242  kubectl apply -f cadvisor.yaml 
+ 1243  vi cadvisor-line.yml 
+ 1244  kubectl apply -f cadvisor-line.yml 
+ 1245  vi cadvisor-line.yml 
+ 1246  kubectl get services -n kube-system
+ 1247  kubectl get pods -n kube-system
+ 1248  vi cadvisor-line.yml 
+ 1249  kubectl apply -f cadvisor-line.yml 
+ 1250  kubectl logs -n kube-system vrops-cadvisor-line-crftl
+ 1251  history|grep ssh
+ 1252  bosh -e kubobosh -d service-instance_c2a852a4-15ca-4c13-8594-dc808a85ea42 ssh worker/0
+ 1253  vi cadvisor-line.yml 
+ 1254  vi cadvisor.yaml 
+ 1255  vi cadvisor-line.yml 
+ 1256  bosh -e kubobosh -d service-instance_c2a852a4-15ca-4c13-8594-dc808a85ea42 ssh worker/0
+ 1257  ls
+ 1258  ll
+ 1259  cat .profile
+ 1260  cat bosh-env.sh
+ 1261  vi bosh-env.sh
+ 1262  source .profile
+ 1263  cat .profile
+ 1264  cat nsx-env.sh
+ 1265  cat bosh-env.sh
+ 1266  bosh login -e kubobosh --client=$BOSH_CLIENT --client-secret=$BOSH_CLIENT_SECRET
+ 1267  ping 172.31.0.2
+ 1268  bosh -v
+ 1269  bosh env -d kubobosh
+ 1270  cd /etc/ssl/certs/
+ 1271  ls
+ 1272  ls root*
+ 1273  more root_ca_certificate 
+ 1274  cd
+ 1275  source bosh-env.sh 
+ 1276  bosh env
+ 1277  ls
+ 1278  cat bosh-env.sh 
+ 1279  bosh alias-env kubobosh -e 172.31.0.2
+ 1280  ssh ubuntu@172.31.0.3
+ 1281  cd /etc/ssl
+ 1282  ls
+ 1283  cd certs/
+ 1284  ls
+ 1285  ls root_ca_certificate 
+ 1286  vi root_ca_certificate
+ 1287  sudo vi root_ca_certificate
+ 1288  sudo update-ca-certificates
+ 1289  cd
+ 1290  ls
+ 1291  pwd
+ 1292  cat bosh-env.sh 
+ 1293  cd /etc/ssl
+ 1294  cd certs
+ 1295  ls
+ 1296  vi root_ca_certificate 
+ 1297  sudo vi root_ca_certificate 
+ 1298  cd
+ 1299  cat bosh-env.sh 
+ 1300  bosh alias-env kubobosh -e 172.31.0.2 --ca-cert /etc/ssl/certs/root_ca_certificate
+ 1301  cat /etc/ssl/certs/root_ca_certificate
+ 1302  sudo vi /etc/ssl/certs/root_ca_certificate
+ 1303  bosh alias-env kubobosh -e 172.31.0.2 --ca-cert /etc/ssl/certs/root_ca_certificate
+ 1304  cat /etc/ssl/certs/root_ca_certificate
+ 1305  source bosh-env.sh 
+ 1306  cat bosh-env.sh 
+ 1307  bosh -e kubobosh deployments
+ 1308  bosh -e kubobosh -d pivotal-container-service-00f7106b0c84face40b9 tasks
+ 1309  bosh -e kubobosh -d pivotal-container-service-00f7106b0c84face40b9 tasks -ar
+ 1310  bosh -e kubobosh -d pivotal-container-service-00f7106b0c84face40b9 task 73
+ 1311  pw
+ 1312  pwd
+ 1313  ls
+ 1314  ls -al
+ 1315  cd logs
+ 1316  ls
+ 1317  rm -R *
+ 1318  ls
+ 1319  docker images
+ 1320  ls
+ 1321  ll
+ 1322  bosh -e kubobosh -d pivotal-container-service-00f7106b0c84face40b9 logs
+ 1323  ls
+ 1324  tar -xvf pivotal-container-service-00f7106b0c84face40b9-20180522-114315-471817413.tgz 
+ 1325  ll
+ 1326  cd pks-nsx-t-osb-proxy/
+ 1327  ls
+ 1328  ll
+ 1329  more pks-nsx-t-osb-proxy.stderr.log 
+ 1330  ll
+ 1331  more pks-nsx-t-osb-proxy.stdout.log 
+ 1332  more pks-nsx-t-osb-proxy_ctl.stderr.log
+ 1333  more pks_nsx_t_osb_proxy_ctl.stderr.log
+ 1334  more pks_nsx_t_osb_proxy_ctl.stdout.log 
+ 1335  more pks-nsx-t-osb-proxy_ctl.stderr.log
+ 1336  more pks-nsx-t-osb-proxy.stderr.log 
+ 1337  echo -n | openssl s_client -connect 192.168.100.110:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /tmp/nsxtmanager.cert
+ 1338  cat /tmp/nsxtmanager.cert
+ 1339  ssh ops_manager@172.31.0.2
+ 1340  ssh vcap@172.31.0.2
+ 1341  ssh vcap@172.31.0.4
+ 1342  exit
+ 1343  cat pks-env.sh 
+ 1344  pks login -a pks.corp.local -u admin -p BfTClhTwaQMzbB8m2Gw9IzdaGBUc3t-h -k
+ 1345  vi pks-env.sh 
+ 1346  bosh -e kubobosh deployments
+ 1347  bosh -e kubobosh -d service-instance_b0ed4925-e2cc-4b62-b4fa-b687efc35bcb tasks
+ 1348  bosh -e kubobosh -d service-instance_b0ed4925-e2cc-4b62-b4fa-b687efc35bcb tasks -ar
+ 1349  bosh -e kubobosh -d service-instance_b0ed4925-e2cc-4b62-b4fa-b687efc35bcb task 96
+ 1350  bosh -e kubobosh -d service-instance_b0ed4925-e2cc-4b62-b4fa-b687efc35bcb task 96 --debug
+ 1351  bosh -e kubobosh deployments
+ 1352  cd logs
+ 1353  ls
+ 1354  rm -R *
+ 1355  bosh -e kubobosh -d service-instance_b0ed4925-e2cc-4b62-b4fa-b687efc35bcb logs
+ 1356  bosh -e kubobosh -d service-instance_b0ed4925-e2cc-4b62-b4fa-b687efc35bcb instances
+ 1357  bosh -e kubobosh -d service-instance_b0ed4925-e2cc-4b62-b4fa-b687efc35bcb logs
+ 1358  bosh -e kubobosh -d service-instance_b0ed4925-e2cc-4b62-b4fa-b687efc35bcb vms
+ 1359  pks clusters
+ 1360  pks delete-cluster my-cluster
+ 1361  bosh -e kubobosh -d service-instance_b0ed4925-e2cc-4b62-b4fa-b687efc35bcb task 96 --cpi
+ 1362  bosh -e kubobosh -d service-instance_b0ed4925-e2cc-4b62-b4fa-b687efc35bcb task 96 --debug
+ 1363  pks delete-cluster my-cluster
+ 1364  pks clusters
+ 1365  pks delete-cluster my-cluster
+ 1366  pks clusters
+ 1367  bosh -e kubobosh delete deployment -d service-instance_b0ed4925-e2cc-4b62-b4fa-b687efc35bcb 
+ 1368  bosh -e kubobosh delete-deployment -d service-instance_b0ed4925-e2cc-4b62-b4fa-b687efc35bcb 
+ 1369  bosh -e kubobosh deployments
+ 1370  bosh -e kubobosh delete-deployment -d pivotal-container-service-00f7106b0c84face40b9
+ 1371  bosh -e kubobosh delete-deployment -d pivotal-container-service-00f7106b0c84face40b9 --force
+ 1372  pks clusters
+ 1373  pks delete-cluster my-cluster
+ 1374  pks clusters
+ 1375  history |grep create-cluster
+ 1376  pks create-cluster my-cluster --external-hostname 10.40.14.34 --plan small --num-nodes 2
+ 1377  pks create-cluster my-cluster2 --external-hostname 10.40.14.34 --plan small --num-nodes 2
+ 1378  bosh -e kubobosh deployments
+ 1379  bosh -e kubobosh -d service-instance_16fed48d-9520-4196-9493-8ae72218a2cc
+ 1380  bosh -e kubobosh -d service-instance_16fed48d-9520-4196-9493-8ae72218a2cc tasks
+ 1381  bosh -e kubobosh -d service-instance_16fed48d-9520-4196-9493-8ae72218a2cc task 132 --debug
+ 1382  pks clusters
+ 1383  history |grep login
+ 1384  pks login -a pks.corp.local -u admin -p BfTClhTwaQMzbB8m2Gw9IzdaGBUc3t-h -k
+ 1385  pks clusters
+ 1386  pks get-credentials my-cluster2
+ 1387  kubectl get all --all-namespaces
+ 1388  kubectl --version
+ 1389  kubectl -v
+ 1390  kubectl version
+ 1391  history |grep login
+ 1392  kubectl get all --all-namespaces
+ 1393  pks clusters
+ 1394  pks login -a pks.corp.local -u admin -p BfTClhTwaQMzbB8m2Gw9IzdaGBUc3t-h -k
+ 1395  pks clusters
+ 1396  pks cluster my-cluster2
+ 1397  cd
+ 1398  ls
+ 1399  pwd
+ 1400  ./nsx-cli.sh cleanup pks-b0ed4925-e2cc-4b62-b4fa-b687efc35bcb false
+ 1401  ./nsx-cli.sh cleanup b0ed4925-e2cc-4b62-b4fa-b687efc35bcb false
+ 1402  history |grep nsx-cli.sh
+ 1403  pks delete-cluster my-cluster2
+ 1404  pks login -a pks.corp.local -u admin -p BfTClhTwaQMzbB8m2Gw9IzdaGBUc3t-h -k
+ 1405  pks delete-cluster my-cluster2
+ 1406  pks clusters
+ 1407  ssh vcap@172.31.0.4
+ 1408  ssh-keygen -f "/home/ubuntu/.ssh/known_hosts" -R 172.31.0.4
+ 1409  ssh vcap@172.31.0.4
+ 1410  history |grep login
+ 1411  pks login -a pks.corp.local -u admin -p BfTClhTwaQMzbB8m2Gw9IzdaGBUc3t-h -k
+ 1412  cat pks-env.sh 
+ 1413  history |grep create-cluster
+ 1414  pks create-cluster kube-cluster --external-hostname kube-cluster.corp.local --plan small --num-nodes 2
+ 1415  pks cluster kube-cluster
+ 1416  ls
+ 1417  cat /etc/rc.local
+ 1418  exit
+ 1419  ls
+ 1420  vi pks-startup-create.sh 
+ 1421  bosh -e kubobosh deployments
+ 1422  bosh -e kubobosh -d service-instance_a6108cda-b094-4d0e-a090-2fee56974983 tasks
+ 1423  bosh -e kubobosh -d service-instance_a6108cda-b094-4d0e-a090-2fee56974983 task 505 debug
+ 1424  bosh -e kubobosh -d service-instance_a6108cda-b094-4d0e-a090-2fee56974983 task 505 --debug
+ 1425  bosh -e kubobosh -d service-instance_a6108cda-b094-4d0e-a090-2fee56974983 task 505 
+ 1426  bosh -e kubobosh -d service-instance_a6108cda-b094-4d0e-a090-2fee56974983 tasks
+ 1427  bosh -e kubobosh -d service-instance_a6108cda-b094-4d0e-a090-2fee56974983 task 507
+ 1428  bosh -e kubobosh -d service-instance_a6108cda-b094-4d0e-a090-2fee56974983 task 507 --debug
+ 1429  bosh -e kubobosh -d service-instance_a6108cda-b094-4d0e-a090-2fee56974983 task 507
+ 1430  pks clusters
+ 1431  pks get-credentials my-cluster
+ 1432  kubectl get all --all-namespaces
+ 1433  ls
+ 1434  docker push harbor.corp.local/trusted/helloworld:V2
+ 1435  export DOCKER_CONTENT_TRUST_SERVER=https://harbor.corp.local:4443
+ 1436  export DOCKER_CONTENT_TRUST=1
+ 1437  docker push harbor.corp.local/trusted/nginx:V2
+ 1438  ls -al
+ 1439  cd .docker/
+ 1440  ls
+ 1441  cd ..
+ 1442  rm -R .docker
+ 1443  ls -al
+ 1444  docker push harbor.corp.local/trusted/nginx:V2
+ 1445  cd /etc/ssl
+ 1446  cd certs
+ 1447  cat root_ca_certificate 
+ 1448  cd
+ 1449  notary -s https://harbor.corp.local:4443 -d ~/.docker/trust  -D init -p harbor.corp.local/trusted/nginx
+ 1450  ls
+ 1451  cd
+ 1452  ll
+ 1453  cd .docker
+ 1454  ls
+ 1455  cd trust
+ 1456  ls
+ 1457  cd private
+ 1458  ls
+ 1459  ll
+ 1460  cd root_keys/
+ 1461  ll
+ 1462  cd
+ 1463  rm -R .docker
+ 1464  history
+ 1465  docker push harbor.corp.local/trusted/nginx:V2
+ 1466  docker login harbor.corp.local
+ 1467  docker push harbor.corp.local/trusted/nginx:V2
+ 1468  docker images
+ 1469  docker rmi harbor.corp.local/trusted/nginx:V2
+ 1470  docker
+ 1471  history |grep docker
+ 1472  history
+ 1473  docker images
+ 1474  docker tag google/cadvisor:v0.29.0 harbor.corp.local/trusted/nginx:V2
+ 1475  docker push harbor.corp.local/trusted/nginx:V2
+ 1476  docker rmi harbor.corp.local/library/nginx:V2
+ 1477  docker rmi harbor.corp.local/trusted/nginx:V2
+ 1478  docker tag harbor.corp.local/library/nginx:V1 harbor.corp.local/trusted/nginx:V2
+ 1479  docker images
+ 1480  cd apps
+ 1481  ls
+ 1482  ls -al
+ 1483  cat nginx-trusted-signed.yaml 
+ 1484  cat nsx-demo-policy.yaml 
+ 1485  cat nsx-pod-policy.yaml 
+ 1486  ll
+ 1487  rm -R logs
+ 1488  cat create-cluster.sh 
+ 1489  rm create-cluster.sh 
+ 1490  cat nginx-sec.yaml
+ 1491  vi nsx-pod-policy.yaml 
+ 1492  ll
+ 1493  kubectl apply -f nsx-pod-policy.yaml 
+ 1494  kubectl get np
+ 1495  kubectl get NetworkPolicy
+ 1496  kubectl get NetworkPolicy -o wide
+ 1497  kubectl apply -f nginx-sec.yaml 
+ 1498  kubectl get all --all-namespaces
+ 1499  kubectl get pods
+ 1500  kubectl get pods -o wide
+ 1501  kubectl describe NetworkPolicy nsx-demo-policy
+ 1502  ls
+ 1503  ll
+ 1504  rm nsx-demo-policy.yaml 
+ 1505  ll
+ 1506  cd
+ 1507  ls *.log
+ 1508  ll
+ 1509  rm startup-cluster.log 
+ 1510  pks clusters
+ 1511  pks delete-cluster my-cluster
+ 1512  pks clusters
+ 1513  kubectl exec -it yelb-ui-584d8cb997-4bk25
+ 1514  kubectl exec -it yelb-ui-584d8cb997-4bk25 /bin/bash
+ 1515  exit
+ 1516  eyxit
+ 1517  exit
+ 1518  kubectl get pods
+ 1519  kubectl get nodes
+ 1520  cd 1935/
+ 1521  more yelb-app.yaml 
+ 1522  kubectl create -f ../apps/rest-review.yaml 
+ 1523  watch kubectl get pods -o wide
+ 1524  kubectl describe pod yelb-db-68d9f5c7f6-rg9f8
+ 1525  kubectl get pod
+ 1526  pks clusters
+ 1527  history | grep bosh
+ 1528  pks clusters
+ 1529  more ../pks-startup-create.sh 
+ 1530  vi yelb-netpol.yaml 
+ 1531  vi yelb-app.yaml 
+ 1532  pks get-credentials my-cluster
+ 1533  kubectl get nodes
+ 1534  kubectl create ns nsx
+ 1535  kubectl config set-context my-cluster --namespace nsx
+ 1536  kubectl create -f nsx-demo-type-loadbalancer.yaml 
+ 1537  watch kubectl get pods
+ 1538  watch kubectl get all
+ 1539  watch kubectl get all -o wide
+ 1540  pks delete-cluster my-cluster
+ 1541  watch pks clusters
+ 1542  exit
+ 1543  kubctl get pods
+ 1544  kubectl get pods
+ 1545  pks clusters
+ 1546  cd 1935/
+ 1547  kubectl get pods -o wide
+ 1548  kubectl delete -f nsx-demo-type-ingress.yaml 
+ 1549  watch kubectl get pods -o wide
+ 1550  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1551  watch kubectl get pods -o wide
+ 1552  kubectl delete -f nsx-demo-type-ingress.yaml 
+ 1553  vi nsx-demo-type-ingress.yaml 
+ 1554  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1555  watch kubectl get pods -o wide
+ 1556  kubectl delete -f nsx-demo-type-ingress.yaml 
+ 1557  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1558  watch kubectl get pods -o wide
+ 1559  kubectl delete -f nsx-demo-type-ingress.yaml 
+ 1560  vi nsx-demo-type-ingress.yaml 
+ 1561  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1562  watch kubectl get pods -o wide
+ 1563  
+ 1564  pks delete-cluster my-cluster
+ 1565  pks clusters
+ 1566  more ../pks-startup-create.sh 
+ 1567  pks create-cluster  my-cluster   --external-hostname my-cluster.corp.local -p small -n 2 
+ 1568  pks clusters
+ 1569  kubectl get nodes
+ 1570  pks clusters
+ 1571  pks get-credentials my-cluster
+ 1572  kubectl get nodes
+ 1573  kubectl create ns nsx
+ 1574  kubectl config set-context my-cluster --namespace nsx
+ 1575  kubectl create -f nsx-demo-type-loadbalancer.yaml 
+ 1576  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1577  kubectl delete -f nsx-demo-type-ingress.yaml 
+ 1578  kubectl delete -f nsx-demo-type-loadbalancer.yaml 
+ 1579  kubectl get all
+ 1580  kubectl create -f nsx-demo-type-loadbalancer.yaml 
+ 1581  kubectl l get all
+ 1582  kubectl  get all
+ 1583  watch kubectl get pods -o wide
+ 1584  kubectl describe service
+ 1585  curl 10.40.14.42
+ 1586  kubectl  delete -f nsx-demo-type-loadbalancer.yaml 
+ 1587  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1588  watch kubectl get pods -o wide
+ 1589  kubectl delete -f nsx-demo-type-ingress.yaml 
+ 1590  kubectl create -f yelb-app.yaml 
+ 1591  watch kubectl get pods -o wide
+ 1592  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1593  watch kubectl get pods -o wide
+ 1594  kubectl delete -f nsx-demo-type-ingress.yaml 
+ 1595  kubectl delete -f yelb-app.yaml 
+ 1596  watch kubectl get pods -o wide
+ 1597  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1598  kubectl delete -f nsx-demo-type-ingress.yaml 
+ 1599  watch kubectl get pods -o wide
+ 1600  kubectl create -f yelb-app.yaml 
+ 1601  watch kubectl get pods -o wide
+ 1602  kubectl delete -f yelb-app.yaml 
+ 1603  kubectl get all
+ 1604  kubectl 
+ 1605  kubectl delete 
+ 1606  kubectl delete pods --all
+ 1607  kubectl create -f yelb-app.yaml 
+ 1608  kubectl get nodes
+ 1609  kubectl get nodes -o wide
+ 1610  kubectl get pods -o wide
+ 1611  ssh 172.15.0.3
+ 1612  pks clusters my-cluster
+ 1613  more ../pks-startup-create.sh 
+ 1614  ssh -l admin pks.corp.local
+ 1615  kubectl 
+ 1616  kubectl get pods -o wide
+ 1617  kubectl cluster-info
+ 1618  kubectl maximum-dead-containers
+ 1619  kubectl get config
+ 1620  kubectl config
+ 1621  kubectl get pods
+ 1622  kubectl describe pod yelb-appserver-558bc44cc-ms5tj
+ 1623  kubectl get events
+ 1624  ls -la
+ 1625  rm appsrv.yaml 
+ 1626  ls -la
+ 1627  more ../apps/rest-review.yaml 
+ 1628  kubectl get pods
+ 1629  kubectl describe pod yelb-appserver-558bc44cc-ms5tj
+ 1630  kubectl delete -f yelb-app.yaml 
+ 1631  kubectl describe no-nat-namespace.yaml de be451d8d-2c9f-4e2d-a342-e7488f3c300e
+ 1632  kubectl describe node be451d8d-2c9f-4e2d-a342-e7488f3c300e
+ 1633  bosh -e kubobosh deployments 
+ 1634  bosh -e kubobosh -d service-instance_5e991b0a-857a-4538-96b7-1a0967515eb6
+ 1635  bosh -e kubobosh -d service-instance_5e991b0a-857a-4538-96b7-1a0967515eb6 ssh worker/0
+ 1636  bosh -e kubobosh -d service-instance_5e991b0a-857a-4538-96b7-1a0967515eb6 ssh worker/1
+ 1637  pks delete-cluster my-cluster
+ 1638  pks clusters
+ 1639  more ../pks-startup-create.sh 
+ 1640  pks  create-cluster  my-cluster   --external-hostname my-cluster.corp.local -p small -n 2
+ 1641  pks clusters
+ 1642  more nsx-demo-type-loadbalancer.yaml 
+ 1643  docker pull yfauser/nsx-demo
+ 1644  docker images
+ 1645  docker tag yfauser/nsx-demo harbor.corp.local/1935/nsx-demo
+ 1646  docker push harbor.corp.local/1935/nsx-demo
+ 1647  pks clusters
+ 1648  pks get credentials my-cluster
+ 1649  pks get-credentials my-cluster
+ 1650  kubectl config use-context my-cluster
+ 1651  kubectl create -f ../apps/rest-review.yaml 
+ 1652  watch kubectl get pods -o wide
+ 1653  more ../apps/rest-review
+ 1654  more ../apps/rest-review.yaml 
+ 1655  kubectl get pods
+ 1656  kubectl describe service
+ 1657  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1658  watch kubectl get pods -o wide
+ 1659  pks delete-cluster my-cluster
+ 1660  pks clusters
+ 1661  watch pks cluster
+ 1662  watch pks clusters
+ 1663  pks clusters
+ 1664  cp ../apps/rest-review.yaml rest-review.yaml
+ 1665  more rest-review.yaml 
+ 1666  ls -la
+ 1667  rm rest-review.yaml 
+ 1668  ls
+ 1669  rm yelb-app.yaml 
+ 1670  vi yelb-app.yaml
+ 1671  more yelb-app.yaml 
+ 1672  vi nsx-demo-type-loadbalancer.yaml 
+ 1673  vi nsx-demo-type-ingress.yaml i
+ 1674  vi nsx-demo-type-ingress.yaml 
+ 1675  more nsx-demo-type-loadbalancer.yaml 
+ 1676  more nsx-demo-type-ingress.yaml 
+ 1677  more yelb-app.yaml 
+ 1678  ls -la
+ 1679  more yelb-netpol.yaml 
+ 1680  more yelb-app.yaml 
+ 1681  more ../pks-startup-create.sh 
+ 1682  pks  create-cluster  my-cluster   --external-hostname my-cluster.corp.local -p small -n 2
+ 1683  pks clusters
+ 1684  watch pks clusters
+ 1685  kubectl describe service
+ 1686  curl 10.40.14.42
+ 1687  kubectl delete -f nsx-demo-type-loadbalancer.yaml 
+ 1688  kubectl create -f yelb-app.yaml 
+ 1689  more yelb-app.yaml 
+ 1690  kubectl create -f yelb-netpol.yaml 
+ 1691  more yelb-app.yaml 
+ 1692  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1693  kubectl describe service
+ 1694  kubectl delete -f yelb-netpol.yaml 
+ 1695  kubectl delete -f yelb-app.yaml 
+ 1696  kubectl delete -f nsx-demo-type-ingress.yaml 
+ 1697  kubectl create -f ../apps/rest-review.yaml 
+ 1698  kubectl delete -f ../apps/rest-review.yaml 
+ 1699  more ../apps/rest-review.yaml
+ 1700  kubectl create -f yelb-app.yaml 
+ 1701  kubectl create -f nsx-demo-type-loadbalancer.yaml 
+ 1702  kubectl delete -f nsx-demo-type-loadbalancer.yaml 
+ 1703  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1704  curl nsx.demo.corp.local
+ 1705  kubectl delete -f nsx-demo-type-ingress.yaml 
+ 1706  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1707  kubectl describe ingress
+ 1708  kubectl delete -f nsx-demo-type-ingress.yaml 
+ 1709  more nsx-demo-type-ingress.yaml 
+ 1710  kubectl create -f nsx-demo-type-loadbalancer.yaml 
+ 1711  watch pks clusteers
+ 1712  watch pks clusters
+ 1713  more ../pks-startup-create.sh 
+ 1714  pks  create-cluster  my-cluster   --external-hostname my-cluster.corp.local -p small -n 2
+ 1715  watch pks clusters
+ 1716  pks get-credentials my-cluster
+ 1717  kubectl create ns nsx
+ 1718  kubectl config set-context my-cluster --namespace nsx
+ 1719  kubectl create -f nsx-demo-type-loadbalancer.yaml 
+ 1720  kubectl get pods
+ 1721  kubectl describe service
+ 1722  curl 10.40.14.43
+ 1723  kubectl get pods
+ 1724  watch kubectl get pods
+ 1725  curl 10.40.14.43
+ 1726  kubectl delete -f nsx-demo-type-loadbalancer.yaml 
+ 1727  kubectl create -f yelb-app.yaml 
+ 1728  kubctl create -f nsx-demo-type-ingress.yaml 
+ 1729  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1730  kubectl delete -f nsx-demo-type-ingress.yaml 
+ 1731  kubectl create -f yelb-netpol.yaml 
+ 1732  kubectl create -f nsx-demo-type-ingress.yaml 
+ 1733  kubectl delete all
+ 1734  kubectl delete --all
+ 1735  kubectl delete -f yelb-netpol.yaml 
+ 1736  kubectl delete -f yelb-app.yaml 
+ 1737  kubectl delete -f nsx-demo-type-ingress.yaml 
+ 1738  ls -la
+ 1739  exit
+ 1740  watch kubectl get all
+ 1741  watch kubectl get all -o wide
+ 1742  pks delete-cluster my-cluster
+ 1743  pks clusters
+ 1744  poweroff 
+ 1745  sudo poweroff 
+ 1746  pks clusters
+ 1747  pks delete-cluster my-cluster
+ 1748  source pks-env.sh 
+ 1749  pks delete-cluster my-cluster
+ 1750  cat .profile
+ 1751  vi pks-startup-create.sh 
+ 1752  pks clusters
+ 1753  rm *.log
+ 1754  source test.sh
+ 1755  vi test.sh
+ 1756  source test.sh
+ 1757  vi test.sh
+ 1758  source test.sh
+ 1759  cat *.log
+ 1760  rm *.log
+ 1761  vi test.sh
+ 1762  source test.sh
+ 1763  cat *.log
+ 1764  vi test.sh
+ 1765  source test.sh
+ 1766  cat *.log
+ 1767  cat test.sh
+ 1768  ls *.sh
+ 1769  mv pks-startup-create.sh pks-startup-create-old.sh
+ 1770  mv test.sh pks-startup-create.sh
+ 1771  vi pks-startup-create.sh
+ 1772  rm *.log
+ 1773  ll
+ 1774  ll *.sh
+ 1775  chmod +x pks-startup-create.sh
+ 1776  ll
+ 1777  ll *.sh
+ 1778  more utils.sh
+ 1779  ll
+ 1780  kubectl exec -it nsx-demo-5b6nx /bin/bash
+ 1781  exit
+ 1782  cd 1935
+ 1783  kubectl create -f nsx-demo-type-loadbalancer.yaml 
+ 1784  kubectlget pods
+ 1785  kubectl get pods
+ 1786  kubectl describe service
+ 1787  curl 10.40.14.41
+ 1788  kubectl get pods
+ 1789  ls
+ 1790  vi nsx-demo-service-snat.yaml
+ 1791  kubectl create -f nsx-demo-service-snat.yaml 
+ 1792  kubectl delete  -f nsx-demo-service-snat.yaml 
+ 1793  kubectl create -f nsx-demo-service-snat.yaml 
+ 1794  kubectl delete  -f nsx-demo-service-snat.yaml 
+ 1795  kubectl delete -f nsx-demo-type-loadbalancer.yaml 
+ 1796  kubectl get all
+ 1797  pks clusters
+ 1798  exit
+ 1799  pks clusters
+ 1800  kubectl get ns
+ 1801  exit
+ 1802  kubectl get all --all-namespaces
+ 1803  bosh -e kubobosh deployments
+ 1804  kubectl get all --all-namespaces
+ 1805  pks clusters
+ 1806  source pks-env.sh 
+ 1807  pks clusters
+ 1808  pks get-credentials my-cluster
+ 1809  bosh -e kubobosh deployments
+ 1810  bosh -e kubobosh -d service-instance_31ebf16c-3c8a-488b-8748-40ed55617b3a instances
+ 1811  bosh -e kubobosh -d service-instance_31ebf16c-3c8a-488b-8748-40ed55617b3a tasks
+ 1812  bosh -e kubobosh -d service-instance_31ebf16c-3c8a-488b-8748-40ed55617b3a tasks -ar
+ 1813  date
+ 1814  bosh -e kubobosh -d service-instance_31ebf16c-3c8a-488b-8748-40ed55617b3a task 724
+ 1815  bosh -e kubobosh -d service-instance_31ebf16c-3c8a-488b-8748-40ed55617b3a task 724 --debug
+ 1816  bosh -e kubobosh -d service-instance_31ebf16c-3c8a-488b-8748-40ed55617b3a tasks -ar
+ 1817  bosh -e kubobosh -d service-instance_31ebf16c-3c8a-488b-8748-40ed55617b3a instances
+ 1818  bosh -e kubobosh -d service-instance_31ebf16c-3c8a-488b-8748-40ed55617b3a tasks -ar
+ 1819  bosh -e kubobosh -d service-instance_31ebf16c-3c8a-488b-8748-40ed55617b3a instances
+ 1820  bosh -e kubobosh -d service-instance_31ebf16c-3c8a-488b-8748-40ed55617b3a tasks -ar
+ 1821  bosh -e kubobosh -d service-instance_31ebf16c-3c8a-488b-8748-40ed55617b3a task 728 --debug
+ 1822  bosh -e kubobosh -d service-instance_31ebf16c-3c8a-488b-8748-40ed55617b3a tasks -ar
+ 1823  bosh -e kubobosh -d service-instance_31ebf16c-3c8a-488b-8748-40ed55617b3a instances
+ 1824  kubectl get all
+ 1825  kubectl get all --all-namespaces
+ 1826  kubectl describe  po/nsx-node-agent-z67m9  --namespace pks-infrastructure
+ 1827  kubectl get all --all-namespaces
+ 1828  kubectl delete  po/nsx-node-agent-z67m9  --namespace pks-infrastructure
+ 1829  kubectl get all --all-namespaces
+ 1830  kubectl get all --all-namespaces -o wide
+ 1831  pks delete-cluster my-cluster
+ 1832  watch pks clusters
+ 1833  kubectl get ns
+ 1834  cd 1935/
+ 1835  ls /la
+ 1836  ls
+ 1837  more yelb-app.yaml 
+ 1838  exit
+ 1839  pks clusters
+ 1840  bosh -e kubobosh deployments
+ 1841  bosh -e kubobosh -d service-instance_edb145a4-2960-4e3a-9e9e-0e5cec9abb84 tasks
+ 1842  bosh -e kubobosh -d service-instance_edb145a4-2960-4e3a-9e9e-0e5cec9abb84 task 1025
+ 1843  mkdir certs
+ 1844  cd certs
+ 1845  vi nsx-cert.cnf
+ 1846  openssl req -newkey rsa:2048 -x509 -nodes -keyout nsx.key -new -out nsx.crt -subj /CN=192.168.100.110 -reqexts SAN -extensions SAN -config <(cat ./nsx-cert.cnf <(printf '[SAN]\nsubjectAltName=IP:192.168.100.110')) -sha256 -days 730
+ 1847  ls
+ 1848  openssl x509 -in nsx.crt -text -noout | grep IP
+ 1849  bosh -e kubobosh -d service-instance_edb145a4-2960-4e3a-9e9e-0e5cec9abb84 task 1025
+ 1850  pks clusters
+ 1851  bosh -e kubobosh -d service-instance_edb145a4-2960-4e3a-9e9e-0e5cec9abb84 tasks
+ 1852  bosh -e kubobosh -d service-instance_edb145a4-2960-4e3a-9e9e-0e5cec9abb84 task 1029
+ 1853  pks clusters
+ 1854  pks delete-cluster my-cluster
+ 1855  watch pks clusters
+ 1856  ll
+ 1857  cat nsx.crt
+ 1858  cat nsx.key
+ 1859  curl --insecure -u admin:'Admin!23Admin' -X POST 'https://192.168.100.110/api/v1/node/services/http?action=apply_certificate&certificate_id=d104c886-e1b1-4162-8434-9fb8b3ce2784
+ 1860  ssh admin@192.168.100.110
+ 1861  oks
+ 1862  pks
+ 1863  exit
+ 1864  more pks-startup-create.sh 
+ 1865  exit
+ 1866  pks clusters
+ 1867  ls
+ 1868  cd apps
+ 1869  ll
+ 1870  cat nginx.yaml
+ 1871  diff nginx.yaml /home/ubuntu/nginx.yml
+ 1872  cp nginx.yaml nginx-noimage.yaml
+ 1873  kubectl apply -f nginx-noimage.yaml 
+ 1874  vi nginx-noimage.yaml
+ 1875  source ~/pks-env.sh
+ 1876  pks get-credentials my-cluster
+ 1877  kubectl apply -f nginx-noimage.yaml 
+ 1878  kubectl get all
+ 1879  bosh -e kubobosh deployments
+ 1880  cat nginx-noimage.yaml 
+ 1881  kubectl get pods
+ 1882  kubectl describe pod nginx-76875586cf-2xldt
+ 1883  kubectl describe pod nginx-76875586cf-2xldt -o wide
+ 1884  kubectl logs  nginx-76875586cf-2xldt -o wide
+ 1885  kubectl logs  nginx-76875586cf-2xldt
+ 1886  bosh -e kubobosh deployments
+ 1887  bosh -e kubobosh -d service-instance_3a5fc28e-1851-4971-ae76-3bcaf5deb3c2 instances
+ 1888  kubectl delete -f nginx-noimage.yaml 
+ 1889  kubectl get pods
+ 1890  kubectl apply -f nginx-noimage.yaml 
+ 1891  clear
+ 1892  kubectl get pods
+ 1893  kubectl delete -f nginx-noimage.yaml 
+ 1894  kubectl get pods
+ 1895  clear
+ 1896  cat /home/ubuntu/nginx-noimage.yaml
+ 1897  clear
+ 1898  cat /home/ubuntu/apps/nginx-noimage.yaml
+ 1899  kubectl apply -f nginx-noimage.yaml
+ 1900  kubectl get pods
+ 1901  bosh -e kubobosh deployments
+ 1902  pks delete-cluster my-cluster
+ 1903  cd
+ 1904  source pks-env.sh
+ 1905  pks delete-cluster my-cluster
+ 1906  watch pks clusters
+ 1907  ll
+ 1908  cat pks-startup-create.sh 
+ 1909  pks create-cluster  my-cluster2   --external-hostname my-cluster2.corp.local -p small -n 2
+ 1910  pks clusters
+ 1911  pks create-cluster  my-cluster3   --external-hostname my-cluster3.corp.local -p small -n 2
+ 1912  pks clusters
+ 1913  pks delete-cluster my-cluster
+ 1914  source pks-env.sh 
+ 1915  pks clusters
+ 1916  pks delete-cluster my-cluster
+ 1917  pks delete-cluster my-cluster2
+ 1918  pks clusters
+ 1919  ls
+ 1920  ll
+ 1921  cd apps
+ 1922  ll
+ 1923  pwd
+ 1924  mkdir plane
+ 1925  ls
+ 1926  cd plane
+ 1927  ll
+ 1928  tar -xvf pp.tar 
+ 1929  ll
+ 1930  mv pp.tar ..
+ 1931  ll
+ 1932  cd ..
+ 1933  ll
+ 1934  pks 
+ 1935  pks create-cluster
+ 1936  pks plans
+ 1937  docker iamges
+ 1938  docker images
+ 1939  docker images |grep quay
+ 1940  docker tag quay.io/mwest44/restreview-ui:V2 vmware/vke-hol/restreview-ui:V2
+ 1941  docker tag quay.io/mwest44/restreview-ui:V1 vmware/vke-hol/restreview-ui:V1
+ 1942  docker tag quay.io/mwest44/restreview-redis:V1 vmware/vke-hol/restreview-redis:V1
+ 1943  docker tag quay.io/mwest44/restreview-db:V1 vmware/vke-hol/restreview-db:V1
+ 1944  docker push vmware/vke-hol/restreview-ui:V2
+ 1945  docker login
+ 1946  ping docker.com
+ 1947  wget --spider http://www.docker.com
+ 1948  ping 8.8.8.8
+ 1949  ping yahoo.com
+ 1950  ping docker.com
+ 1951  docker -ps
+ 1952  docker run --name concourse-db   --net=concourse-net   -h concourse-postgres   -p 5432:5432   -e POSTGRES_USER=postgresadmin   -e POSTGRES_PASSWORD=VMware1!   -e POSTGRES_DB=atc   -d postgres
+ 1953  docker run  --name concourse   -h concourse   -p 8080:8080   --detach   --privileged   --net=concourse-net   concourse/concourse quickstart   --add-local-user=admin:VMware1!   --main-team-local-user=concourseadmin   --external-url=http://10.40.14.6:8080   --postgres-user=postgresadmin   --postgres-password=VMware1!   --postgres-host=concourse-db   --worker-garden-dns-server 8.8.8.8
+ 1954  ifconfig
+ 1955  wget https://github.com/concourse/concourse/releases/download/v4.0.0/fly_linux_amd64
+ 1956  ls
+ 1957  mkdir vmworld2018
+ 1958  cd vmworld2018/
+ 1959  mkdir ci
+ 1960  mv ../fly_linux_amd64 ./fly
+ 1961  ll
+ 1962  wget https://github.com/concourse/concourse/releases/download/v4.0.0/fly_linux_amd64
+ 1963  fly -t main login --concourse-url=http://10.40.14.6:8080
+ 1964  ./fly -t main login --concourse-url=http://10.40.14.6:8080
+ 1965  sudo su
+ 1966  su
+ 1967  docker -ps
+ 1968  docker ps
+ 1969  docker ps status
+ 1970  docker ps 
+ 1971  docker
+ 1972  docker list
+ 1973  docker ps
+ 1974  docker run --name concourse-db   --net=concourse-net   -h concourse-postgres   -p 5432:5432   -e POSTGRES_USER=postgresadmin   -e POSTGRES_PASSWORD=VMware1!   -e POSTGRES_DB=atc   -d postgres
+ 1975  docker run  --name concourse   -h concourse   -p 8080:8080   --detach   --privileged   --net=concourse-net   concourse/concourse quickstart   --add-local-user=admin:VMware1!   --main-team-local-user=concourseadmin   --external-url=http://10.40.14.6:8080   --postgres-user=postgresadmin   --postgres-password=VMware1!   --postgres-host=concourse-db   --worker-garden-dns-server 8.8.8.8
+ 1976  #concourse user = admin, password is VMware1!
+ 1977  docker ps
+ 1978  ifconfig
+ 1979  uname -a
+ 1980  docker ps images
+ 1981  docker ps --help
+ 1982  docker ps -a
+ 1983  docker run 01b41a7f11f5
+ 1984  docker run 38191fcf58bf
+ 1985  docker run --name concourse-db --net=concourse-net -h concourse-postgres -p 5432:5432 -e POSTGRES_USER=postgresadmin -e POSTGRES_PASSWORD=VMware1! -e POSTGRES_DB=atc -d postgres
+ 1986  docker remove 38191fcf58bf
+ 1987  exit
+ 1988  Last login: Mon Aug 13 16:35:39 2018 from 192.168.110.10
+ 1989  Fetching info:
+ 1990  Exit code 1
+ 1991  reboot -r
+ 1992  reboot
+ 1993  sudo reboot
+ 1994  df -csh
+ 1995  du -csh
+ 1996  cd /
+ 1997  du -csh *
+ 1998  sudo
+ 1999  sudo -su
+ 2000  sudo su
+ 2001  docker ps -a
+ 2002  docker run 38191fcf58bf
+ 2003  df
+ 2004  docker ps -a
+ 2005  docker inspect --format "{{ .Name }} # {{ .NetworkSettings.IPAddress }} # {{ .NetworkSettings.Ports }}" $(docker ps -q) | tr -s '#' '\t'
+ 2006  docker ps -a
+ 2007  docker run postgres
+ 2008  docker ps -a
+ 2009  docker kill 31b29494652b
+ 2010  docker rm 31b29494652b
+ 2011  docker restart 38191fcf58bf
+ 2012  docker network create concourse-net
+ 2013  docker restart 38191fcf58bf
+ 2014  docker restart 01b41a7f11f5
+ 2015  docker ps -a
+ 2016  clear
+ 2017  docker ps -a
+ 2018  pwd
+ 2019  ls
+ 2020  ll
+ 2021  cd vmworld2018/
+ 2022  ll
+ 2023  cd ci
+ 2024  ll
+ 2025  cd .
+ 2026  cd ..
+ 2027  git add .
+ 2028  ll
+ 2029  pwd
+ 2030  cd ..
+ 2031  ll
+ 2032  git add .
+ 2033  cd vmworld2018/
+ 2034  ll
+ 2035  cd ..
+ 2036  git clone https://github.com/stegeler/vmworld2018 vmworld2018/
+ 2037  rmdir -r vmworld2018/
+ 2038  rm -r vmworld2018/
+ 2039  git clone https://github.com/stegeler/vmworld2018 vmworld2018/
+ 2040  cd vmworld2018/
+ 2041  ll
+ 2042  git pull
+ 2043  ll
+ 2044  git status
+ 2045  git clone
+ 2046  cd ..
+ 2047  git pull
+ 2048  ll
+ 2049  cd vmworld2018/
+ 2050  ll
+ 2051  git clone
+ 2052  git clone -b master
+ 2053  git clone http://github.com/stegeler/vmworld
+ 2054  git clone http://github.com/stegeler/vmworld2018
+ 2055  ll
+ 2056  ll vmworld2018/
+ 2057  git fetch 
+ 2058  ll vmworld2018/
+ 2059  git fetch prune
+ 2060  git pull -p
+ 2061  ll
+ 2062  ll vmworld2018/
+ 2063  git pull -p
+ 2064  ll vmworld2018/
+ 2065  git pull
+ 2066  fly --target vsphereacct login -u admin -p VMware1! --concourse-url http://10.40.14.6:8080 -n main
+ 2067  ./fly --target vsphereacct login -u admin -p VMware1! --concourse-url http://10.40.14.6:8080 -n main
+ 2068  ls
+ 2069  cd ..
+ 2070  ls
+ 2071  ll
+ 2072  wget https://github.com/concourse/concourse/releases/download/v4.0.0/fly_linux_amd64
+ 2073  mv ./fly_linux_amd64 ~./vmworld2018/ .
+ 2074  mv fly_linux_amd64 ~/vmworld2018/fly
+ 2075  cd vmworld2018/
+ 2076  ll
+ 2077  chmod +x fly
+ 2078  vi ~/.bashrc
+ 2079  fly
+ 2080  cp fly ~/bin/fly
+ 2081  mkdir ~/bin
+ 2082  cp fly ~/bin/fly
+ 2083  fly
+ 2084  history
+ 2085  fly --target vsphereacct login -u admin -p VMware1! --concourse-url http://10.40.14.6:8080 -n main
+ 2086  ll
+ 2087  cd ci
+ 2088  ll
+ 2089  chmod +x 00_set-pipeline.sh 
+ 2090  ./00_set-pipeline.sh 
+ 2091  sudo
+ 2092  sudo su
+ 2093  docker ps
+ 2094  cd ~
+ 2095  git pull
+ 2096  cd vmworld2018/
+ 2097  git pull
+ 2098  sudo su
+ 2099  ls
+ 2100  ll
+ 2101  cd ci
+ 2102  ll
+ 2103  git pull
+ 2104  sudo chown -R .* *
+ 2105  cd ..
+ 2106  sudo chown -R .* *
+ 2107  git pull
+ 2108  cd ..
+ 2109  sudo rm -r ./vmworld2018/
+ 2110  ll
+ 2111  get clone
+ 2112  git clone
+ 2113  git clone https://github.com/stegeler/vmworld2018
+ 2114  cd vmworld2018/
+ 2115  cd ci
+ 2116  fly
+ 2117  bash 00_set-pipeline.sh 
+ 2118  fly --target vsphereacct login -u admin -p VMware1! --concourse-url http://10.40.14.6:8080 -n main
+ 2119  bash 00_set-pipeline.sh 
+ 2120  cd ..
+ 2121  fly --target vsphereacct login -u admin -p VMware1! --concourse-url http://10.40.14.6:8080
+ 2122  bash 00_set-pipeline.sh 
+ 2123  cd ci
+ 2124  bash 00_set-pipeline.sh 
+ 2125  history
+ 2126  history > history.export.txt
