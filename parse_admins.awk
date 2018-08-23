@@ -68,7 +68,7 @@ BEGIN {
     }
     adds += 1
   } else if ($2 == "D") {
-    cmd = "./del_user.sh" " " g_group " " $3 " " $4 " " $5
+    cmd = "./del_user.sh" " " g_group " " $3
     if (debug) {
       print "DEBUG: " cmd
     } else {

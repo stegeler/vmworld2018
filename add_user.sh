@@ -61,16 +61,24 @@ else
 fi
 
 # Add the user as requested
+#sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
+#  /usr/lib/vmware-vmafd/bin/dir-cli group list \
+#  --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" \
+#  --name "${group}"
 sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
-  /usr/lib/vmware-vmafd/bin/dir-cli group list \
+  /usr/lib/vmware-vmafd/bin/dir-cli user find-by-name \
   --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" \
-  --name "${group}"
-sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
-  /usr/lib/vmware-vmafd/bin/dir-cli user create \
-  --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" \
-  --account ${user} --user-password "${password}" \
-  --first-name ${first_name} --last-name ${last_name}
-sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
-  /usr/lib/vmware-vmafd/bin/dir-cli group modify \
-  --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" \
-  --name ${group} --add ${user}
+  --account ${user}
+if [ $? -ne 0 ]; then
+  sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
+    /usr/lib/vmware-vmafd/bin/dir-cli user create \
+    --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" \
+    --account ${user} --user-password "${password}" \
+    --first-name ${first_name} --last-name ${last_name}
+  sshpass -p "${VCSA_PASSWORD}" ssh -o StrictHostKeyChecking=no ${VCSA_USER}@${VCSA_ADDRESS} \
+    /usr/lib/vmware-vmafd/bin/dir-cli group modify \
+    --login ${VCENTER_ADMIN_USER} --password "${VCENTER_ADMIN_PASSWORD}" \
+    --name ${group} --add ${user}
+else
+  echo "WARN: User ${user} already exists, not adding."
+fi
