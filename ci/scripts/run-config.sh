@@ -5,9 +5,9 @@
 set -e
 
 # Set to print out every command if in debug mode.
-if [ -n "${DEBUG}" -a ${DEBUG} ]; then
-  set -x
-fi
+#if [ -n "${DEBUG}" -a ${DEBUG} ]; then
+#  set -x
+#fi
 
 # Save current directory
 TOP="$(pwd)"
