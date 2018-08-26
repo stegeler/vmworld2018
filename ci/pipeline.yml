@@ -16,7 +16,7 @@ jobs:
       - task: task-static-test
         file: git-stegeler/ci/tasks/static-test.yml
         params:
-          DEBUG: ((debug_mode))
+         # DEBUG: ((debug_mode))
 
   - name: run-config
     public: true
@@ -32,4 +32,4 @@ jobs:
           VCSA_PASSWORD: ((vcsa_password))
           VCENTER_ADMIN_USER: ((vcenter_admin_user))
           VCENTER_ADMIN_PASSWORD: ((vcenter_admin_password))
-          DEBUG: ((debug_mode))
+          #DEBUG: ((debug_mode))

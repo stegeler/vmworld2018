@@ -1,10 +1,10 @@
 #Format for add/delete
 # User: [A|D] account password
-
+# !!!Warning: Do not manipulate service accounts!!!! 
 
 Group: Administrators
 User: A tom Tom Hite VMware1!
 User: A ironman Tony Stark VMware1!
 User: A thanos Supreme Being VMware1!
 User: D starlord Peter Quill VMware1!
-User: D Steve Steve Tegeler VMware1! 
+
