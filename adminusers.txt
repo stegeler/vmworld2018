@@ -6,8 +6,8 @@ Group: Administrators
 User: A tom Tom Hite VMware1!
 User: A ironman Tony Stark VMware1!
 User: A thanos Supreme Being VMware1!
-User: D starlord Peter Quill VMware1!
-User: A Superman Clark Kent VMware1!
+User: A batman Bruce Wayne VMware1!
+User: D Superman Clark Kent VMware1!
 
 
 
